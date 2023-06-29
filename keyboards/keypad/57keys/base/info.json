@@ -1,0 +1,10 @@
+{
+    "keyboard_name": "Keypad MMO 57",
+    "usb": {
+      "vid": "0xFEED",
+      "pid": "0x0000",
+      "device_version": "0.0.1"
+    },
+    "processor": "STM32F411",
+    "bootloader": "stm32-dfu",
+}
