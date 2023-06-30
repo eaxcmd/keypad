@@ -1,0 +1,18 @@
+{
+    "keyboard_name": "Keypad 7",
+    "development_board": "blackpill_f411",
+    "matrix_pins": {
+        "cols": ["A7", "A6", "A5", "A4", "A3", "A2"],
+        "rows": ["B0", "B1", "B2"]
+    },
+    "backlight": {
+        "pin": "A0"
+    },
+    "ws2812": {
+        "pin": "A1"
+    },
+    "apa102": {
+        "data_pin": "A1",
+        "clock_pin": "A2"
+    }
+}
