@@ -14,20 +14,37 @@
   * along with this program.  If not, see <http://www.gnu.org/licenses/>.
   */
 #include QMK_KEYBOARD_H
+#define RAISE MO(_RAISE)
 
 enum custom_layers {
     _QWERTY,
     _RAISE
 };
-#define RAISE MO(_RAISE)
 
+enum custom_keycodes {
+    QMKBEST = SAFE_RANGE,
 
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case QMKBEST:
+        if (record->event.pressed) {
+            // when keycode QMKBEST is pressed
+            SEND_STRING(SS_TAP(X_F1) SS_DELAY(300) SS_TAP(X_F2));
+        } else {
+            // when keycode QMKBEST is released
+        }
+        break;
+    }
+    return true;
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_default(
-        KC_Q, KC_W, KC_E, KC_R, KC_T, RAISE
+        KC_A, KC_W, KC_D, QMKBEST, KC_ESC, RAISE
     ),
     [_RAISE] = LAYOUT_default(
-        KC_Z, KC_X, KC_C, KC_V, KC_B, _______
+        KC_Z, KC_X, KC_C, KC_V, QMKBEST, _______
     ),
 };
